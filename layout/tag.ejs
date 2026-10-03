@@ -1,0 +1,24 @@
+<div id="tag">
+  <h1><%= page.tag %></h1>
+  <ul class="post-list">
+    <% page.posts.each(function(post) { %>
+      <li class="post-item">
+        <% if (post.date_start) { %>
+          <% var dateStr = post.date_start.toString().substring(0, 10).split('-'); %>
+          <% var months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']; %>
+          <span class="meta"><%= months[parseInt(dateStr[1]) - 1] %> <%= dateStr[0] %></span>
+        <% } else { %>
+          <%- partial('_partial/post/date', { post: post, class_name: 'meta' }) %>
+        <% } %>
+        <span>
+          <% if (post.company && post.job_title) { %>
+            <a href="<%- url_for(post.path) %>"><%= post.company %> - <%= post.job_title %></a>
+          <% } else { %>
+            <%- partial('_partial/post/title', { post: post, index: true, class_name: '' }) %>
+          <% } %>
+        </span>
+      </li>
+    <% }) %>
+  </ul>
+  <%- partial('_partial/pagination') %>
+</div>

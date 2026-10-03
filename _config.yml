@@ -5,7 +5,7 @@
 # Link to a page that gives an overview of all your projects.
 # This can be an external link (e.g., to you GitHub profile) or to another
 # page within your website.
-projects_url: http://github.com/probberechts
+projects_url: http://github.com/snello
 
 # Set the page direction to RTL or LTR. default is LTR. (if you set it 'rtl', the 'vazir' font will be loaded.)
 direction: ltr
@@ -16,8 +16,7 @@ direction: ltr
 nav:
   home: /
   about: /about/
-  articles: /archives/
-  projects: http://github.com/probberechts
+  career: /career/
 
 
 # Links to your social media accounts.
@@ -80,7 +79,7 @@ post:
 # Note: if start_year/end_year not provided, will use current year.
 copyright:
   start_year: 2016
-  end_year:
+  end_year: 2026
 
 # Customize the 404 page
 # Options:
