@@ -14,7 +14,7 @@ $base-style
   h2, .h2
     position: relative
     display: block
-    margin-top: 2rem
+    margin-top: .5rem
     margin-bottom: .5rem
     color: $color-accent-2
     text-transform: none
@@ -114,3 +114,14 @@ $base-style
   td
     padding: 0 8px
     border-bottom: none
+
+  a.no-underline
+    background: none
+    text-decoration: none
+    &::after
+      content: none
+    &:hover
+      background: none
+      text-decoration: none
+      &::after
+        content: none
