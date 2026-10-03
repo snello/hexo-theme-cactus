@@ -4,7 +4,14 @@
     <% page.posts.each(function(post) { %>
       <li class="post-item">
         <% if (post.date_start) { %>
-          <% var dateStr = post.date_start.toString().substring(0, 10).split('-'); %>
+          <% var dateStr; %>
+          <% if (typeof post.date_start === 'string') { %>
+            <% dateStr = post.date_start.split('-'); %>
+          <% } else if (post.date_start.toISOString) { %>
+            <% dateStr = post.date_start.toISOString().substring(0, 10).split('-'); %>
+          <% } else { %>
+            <% dateStr = post.date_start.toString().substring(0, 10).split('-'); %>
+          <% } %>
           <% var months = ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December']; %>
           <span class="meta"><%= months[parseInt(dateStr[1]) - 1] %> <%= dateStr[0] %></span>
         <% } else { %>
