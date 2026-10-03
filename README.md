@@ -132,7 +132,7 @@ Set up the navigation menu in the `_config.yml`:
 nav:
   home: /
   about: /about/
-  articles: /archives/
+  career: /career/
   projects: http://github.com/probberechts
   LINK_NAME: URL
 ```

@@ -1,0 +1,18 @@
+<div>
+    <h2>
+        <time datetime="<%= date_xml(post.date_start) %>" class="dt-published" itemprop="datePublished"><%= new Date(post.date_start).toLocaleDateString('en-US', { year: 'numeric' }) %></time>
+        -
+        <% if(post.date_end) { %>
+            <time datetime="<%= date_xml(post.date_start) %>" class="dt-published" itemprop="datePublished"><%= new Date(post.date_end).toLocaleDateString('en-US', { year: 'numeric' }) %></time>
+          <% } else { %>
+            Present
+        <% } %>
+    </h2>
+</div>
+<div>
+    <h3>
+        <a class="<%= class_name %>" href="<%- url_for(post.path) %>"><%= post.company %> - <%= post.job_title %></a></h3>
+    <h4>Location: </h4><%= post.location %><br />
+    <h4>Status: </h4> <%= post.current_status %>
+</div>
+<%- partial('_partial/post/tag', {page: post}) %>

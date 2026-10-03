@@ -1,0 +1,26 @@
+<h1>Career</h1>
+<div id="career">
+    Feel free to checkout my <a href="https://linkedin.com/in/oliversnell">LinkedIn</a> and my <a href="https://oliver.snell.me/Oliver Snell Resume.pdf" target="_blank">Resume</a> as I've gotten a little more verbose on this page.
+</div>
+<div id="archive">
+    <ul class="post-list">
+        <%
+            const ps = [];
+            site.posts.filter((p) => p.job_title).forEach(function(item){
+                ps.push(item);
+            });
+
+            ps.sort(function(a,b) {
+                return new Date(a.date_start).getTime() > new Date(b.date_start).getTime() ? -1:1;
+            });
+        %>
+        <% ps.forEach(function(p) { %>
+            <hr />
+            <li class="post-item">
+                <span><%- partial('_partial/career/job', { post: p, index: false, class_name: '' }) %></span>
+            </li>
+        <% }); %>
+    </ul>
+    <%- partial('_partial/pagination') %>
+  </div>
+  
