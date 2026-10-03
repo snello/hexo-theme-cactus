@@ -1,0 +1,32 @@
+<%- partial('_partial/header') %>
+<article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+  <header>
+      <div id="job-metadata">
+        <% if(page.logo) { %>
+          <div id="job-logo">
+            <a href="<%= page.company_url %>" class="no-underline"><img src="/images/<%= page.logo %>" height=150px max-width=150px /></a>
+          </div>
+        <% } %>
+        <h1><a href="<%= page.company_url %>"><%= page.company %></a></h1>
+        <h2>
+            <time datetime="<%= date_xml(page.date_start) %>" class="dt-published" itemprop="datePublished"><%= new Date(page.date_start).toLocaleDateString('en-US', { month: 'long', year: 'numeric' }) %></time>
+            -
+            <% if(page.date_end) { %>
+              <time datetime="<%= date_xml(page.date_start) %>" class="dt-published" itemprop="datePublished"><%= new Date(page.date_end).toLocaleDateString('en-US', { month: 'long', year: 'numeric' }) %></time>
+            <% } else { %>
+              Present
+            <% } %>
+        </h2>
+        <h3><%= page.job_title %></h3><br />
+        <h4>Location: </h4><%= page.location %><br />
+        <h4>Status:</h4> <%= page.current_status %>
+      </div>
+    <div class="meta">
+      <%- partial('_partial/post/tag') %>
+    </div>
+  </header>
+  <%- page.content %>
+  <%- partial('_partial/post/gallery') %>
+
+</article>
+<%- partial('_partial/comments') %>
