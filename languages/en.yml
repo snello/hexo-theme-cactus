@@ -3,6 +3,7 @@ nav:
   about: About
   career: Career
   articles: Writing
+  projects: Projects
   tag: Tag
   category: Category
   search: Search
@@ -20,6 +21,7 @@ index:
   enum_and: and
   articles: Writing
   career: Career
+  projects: Projects
   topics: Topics
   most_recent: Most recent
 

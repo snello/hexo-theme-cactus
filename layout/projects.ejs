@@ -1,0 +1,25 @@
+<h1>Projects</h1>
+<div id="projects">
+    <p>A collection of projects I've built and contributed to. Each project showcases different technologies, approaches, and learnings.</p>
+</div>
+<div id="archive">
+    <ul class="post-list">
+        <%
+            const ps = [];
+            site.posts.filter((p) => p.layout === 'project').forEach(function(item){
+                ps.push(item);
+            });
+
+            ps.sort(function(a,b) {
+                return new Date(a.date).getTime() > new Date(b.date).getTime() ? -1:1;
+            });
+        %>
+        <% ps.forEach(function(p) { %>
+            <hr />
+            <li class="post-item">
+                <span><%- partial('_partial/projects/project', { post: p, index: false, class_name: '' }) %></span>
+            </li>
+        <% }); %>
+    </ul>
+    <%- partial('_partial/pagination') %>
+  </div>

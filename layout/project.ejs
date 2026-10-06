@@ -1,0 +1,35 @@
+<%- partial('_partial/header') %>
+<article class="post h-entry" itemscope itemtype="http://schema.org/BlogPosting">
+  <div id="project-title-bar">
+    <h1><%= page.title %></h1>
+    <% if(page.description) { %>
+      <p class="project-description"><%= page.description %></p>
+    <% } %>
+    <div class="project-meta-row">
+      <span class="project-date">
+        <time datetime="<%= date_xml(page.date) %>" class="dt-published" itemprop="datePublished"><%= date(page.date, 'YYYY-MM-DD') %></time>
+      </span>
+      <% if(page.repository) { %>
+        <span class="project-repository">
+          <a href="<%= page.repository %>" target="_blank">📦 Repository</a>
+        </span>
+      <% } %>
+      <% if(page.live_url) { %>
+        <span class="project-live-url">
+          <a href="<%= page.live_url %>" target="_blank">🔗 Live</a>
+        </span>
+      <% } %>
+    </div>
+  </div>
+
+  <div id="project-content-wrapper">
+    <div id="project-body">
+      <%- page.content %>
+    </div>
+  </div>
+
+  <div class="project-tags-footer">
+    <%- partial('_partial/post/tag') %>
+  </div>
+</article>
+<%- partial('_partial/comments') %>
